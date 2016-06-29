@@ -1,0 +1,25 @@
+Tensorflow with AVX2 and CUDA
+=============================
+
+This is a Docker image for running Tensorflow 0.9 with support for AVX2 and
+CUDA.  In my testing, this is 30-100x faster than the default Tensorflow image
+(`gcr.io/tensorflow/tensorflow`).
+
+Currently, this only works well on a Linux host using the
+[nvidia-docker](https://github.com/NVIDIA/nvidia-docker) wrapper.
+
+Like the stock Tensorflow image, this container will come up running Jupyter on
+port 8888.
+
+To build:
+
+    docker build github.com/cbiffle/docker-tensorflow:avx2-cuda
+
+To run (from Docker Hub):
+
+    nvidia-docker run -it -p 8888:8888 cbiffle/tensorflow:avx2-cuda
+
+The Tensorflow binaries included here are built from upstream 0.9 with
+`--copt=-mavx2`.  The container does not actually include the dependencies
+needed to build Tensorflow, because they're kind of scary.  I've included
+Tensorflow's license as `tensorflow.LICENSE`.
