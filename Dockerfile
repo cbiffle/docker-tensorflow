@@ -12,5 +12,7 @@ COPY tensorflow-0.9.0-cp27-none-linux_x86_64.whl /tmp
 RUN pip install /tmp/tensorflow-0.9.0-cp27-none-linux_x86_64.whl
 RUN pip install jupyter
 
+RUN mkdir -p /notebooks
+
 EXPOSE 8888
 CMD jupyter notebook --notebook-dir=/notebooks --no-browser --ip=0.0.0.0
