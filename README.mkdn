@@ -22,10 +22,10 @@ To build:
 
 To run (from Docker Hub):
 
-    nvidia-docker run -it -p 8888:8888 cbiffle/tensorflow:avx2-cuda
+    nvidia-docker run -it -p 8888:8888 cbiffle/docker-tensorflow:avx2-cuda
 
 Or using an external notebook directory (which I recommend, as it makes the
 container ephemeral):
 
     nvidia-docker run -it -p 8888:8888 -v /path/to/project:/notebooks \
-        cbiffle/tensorflow:avx2-cuda
+        cbiffle/docker-tensorflow:avx2-cuda
