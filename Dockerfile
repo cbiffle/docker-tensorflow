@@ -5,6 +5,7 @@ COPY tensorflow-0.9.0-cp27-none-linux_x86_64.whl /tmp
 
 RUN \
   apt-get update && \
+  apt-get install -y --force-yes libcudnn5=5.0.5-1+cuda7.5 && \
   apt-get install -y \
     libcuda1-352 \
     python-pip \
